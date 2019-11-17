@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+
+<div>
+    <h1 class="title is-1">Navy DEP Blog</h1>
+    <hr>
+    {% for post in posts%}
+    <h2 class="title is-2"><a href="#">{{post.title}}</a></h2>
+    <small>
+        {{post.created_on.date}} |&nbsp;
+        Categories:|&nbsp;
+        {% for category in post.categories.all %}
+        <a href="#">
+            {{category.name}}
+        </a> &nbsp;
+        {% endfor %}
+    </small>
+    <p>{{post.body | slice:":400"}}...</p>
+    {% endfor %}
+</div>
+{% endblock %}
