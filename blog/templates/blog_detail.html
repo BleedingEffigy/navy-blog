@@ -2,35 +2,42 @@
 
 {% block page_content %}
 
-<div>
-    <h1>{{ post.title }}</h1>
-    <small>
-        {{ post.created_on.date }} |&nbsp;
-        Categories: &nbsp;
-        {% for category in post.categories.all %}
-            <a href="#"> {{ category.name }} </a> &nbsp;
-        {% endfor %}
-    </small>
-    <p> {{ post.body | linebreaks }} </p>
-    {% if request.user.is_authenticated %}
-    <h3>Leave a comment:</h3>
-    <h4> Commenting as {{ request.user.username}} </h4>
-    <form action="/blog/{{post.pk}}/" method="post">
-        {% csrf_token %}
-        <div class="form">
-            {{form.body}}
+<div class="columns">
+    <div class="column is-8 is-offset-2">
+        <h1 class="title">{{ post.title }}</h1>
+        <small>
+            {{ post.created_on.date }} |&nbsp;
+            Categories: &nbsp;
+            {% for category in post.categories.all %}
+                <a href="{% url 'blog_category' category.name%}"> {{ category.name }} </a> &nbsp;
+            {% endfor %}
+        </small>
+        <div class="content is-large">
+            <p> {{ post.body | linebreaks }} </p>
         </div>
-        <button type="submit" class="">Submit</button>
-    </form>
-    {% endif %}
-    <h3>Comments:</h3>
-    {% for comment in comments%}
-    <p>
-        On {{ comment.created_on.date }}&nbsp;
-        <b>{{comment.author.username}}</b> wrote:
-    </p>
-    <p>{{comment.body}}</p>
-    <hr>
-    {% endfor %}
+        {% if request.user.is_authenticated %}
+        <h3>Leave a comment:</h3>
+        <h4> Commenting as {{ request.user.username}} </h4>
+        <form action="/{{post.pk}}/" method="post">
+            {% csrf_token %}
+            <div class="form">
+                {{form.body}}
+            </div>
+            <button type="submit" class="button">Submit</button>
+        </form>
+        {% endif %}
+        <h3 class="title is-3">Comments:</h3>
+        {% for comment in comments%}
+        <div class="card">
+            <div clas="card-content">
+                <p>
+                    On {{ comment.created_on.date }}&nbsp;
+                    <b>{{comment.author.username}}</b> wrote:
+                </p>
+                <p class="is-size-4">{{comment.body}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}

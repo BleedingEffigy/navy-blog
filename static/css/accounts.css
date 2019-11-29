@@ -1,0 +1,16 @@
+body {
+    background-image: url(../img/dark-paths.png);
+}
+
+.logo {
+    font-family: 'Century Gothic', sans-serif;
+}
+
+.logo a {
+    color: rgba(213,173,54,.9);
+}
+
+.logo a:hover,
+.logo a:active {
+    text-decoration: none;
+}

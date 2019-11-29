@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load static %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'css/accounts.css' %}">
+{% endblock %}
+
+{% block page_content %}
+    <div class="container">
+        <div class="level">
+            <div class="level-item">
+                <h1 class="title is-1 logo">
+                    <a href="{% url 'blog_index'%}">Navy DEP Blog</a>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <section class="section">
+        <div class="columns is-centered">
+            <div class="column is-4-widescreen is-6-desktop is-8-tablet">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="level">
+                            <div class="level-item">
+                                <form method="post" novalidate>
+                                    {% csrf_token %}
+                                    {% include 'includes/form.html' %}
+                                    <button type="submit" class="button is-primary">Log in</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        New to the blog? <a href="{% url 'signup' %}">&nbsp; Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
