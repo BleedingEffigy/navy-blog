@@ -28,8 +28,8 @@
         {% endif %}
         <h3 class="title is-3">Comments:</h3>
         {% for comment in comments%}
-        <div class="card">
-            <div clas="card-content">
+        <div class="media">
+            <div clas="media-content">
                 <p>
                     On {{ comment.created_on.date }}&nbsp;
                     <b>{{comment.author.username}}</b> wrote:

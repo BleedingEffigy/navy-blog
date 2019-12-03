@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block stylesheet %}{% endblock %}
+
+{% block page_content %}
+<div class="section">
+    <div class="columns">
+        <div class="column">
+            <div class="card">
+                <div class="card-content">
+                    <div class="columns is-desktop">
+                        <div class="column is-3">
+                            <img src="https://via.placeholder.com/300" alt="" class="image">
+                        </div>
+                        <div class="column is-size-5">
+                            <div class="level">
+                                <div class="level-left"><div class="level-item">@ {{user.username}} </div></div>
+                            </div>
+                            <button class="button is-danger is-light">edit</button>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="title"> All comments made: </div>
+            {% for comment in comments %}
+            <article class="media">
+                <div class="media-content">
+                    <div class="content">
+                        {{comment.created_on}} :
+                        <br>
+                        {{comment.body}}
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

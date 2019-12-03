@@ -15,3 +15,15 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
+
+def profile(request):
+    comments = Comment.objects.filter(
+        author__username__contains = request.user.username
+    ).order_by(
+        '-created_on'
+    )
+    context = {
+        'user': request.user,
+        'comments': comments
+    }
+    return render(request, 'profile.html', context)
