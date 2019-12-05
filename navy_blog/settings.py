@@ -129,3 +129,5 @@ STATICFILES_DIRS = (
 
 LOGOUT_REDIRECT_URL = 'blog_index'
 LOGIN_REDIRECT_URL = 'blog_index'
+
+AUTH_USER_MODEL = "accounts.CustomUser"
