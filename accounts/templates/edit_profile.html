@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block stylesheet %}
+
+{% endblock %}
+
+{% block page_content %}
+<div class="container">
+    <h1 class="title has-text-centered is-1 logo">
+        <a href="{% url 'blog_index' %}">Navy DEP Blog</a>
+    </h1>
+    <div class="columns">
+        <div class="column is-8">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-header-title is-centered">Edit Profile</h3>
+                </div>
+                <div class="card-content">
+                    <form method="post" novalidate>
+                        {% csrf_token %}
+                        {{form.as_p}}
+                        <button type="submit" class="button is-link">Edit</button>
+                    </form>
+                </div>
+                <div class="card-footer has-text-weight-light is-centered">
+                    
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}
