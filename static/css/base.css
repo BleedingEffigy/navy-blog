@@ -1,0 +1,19 @@
+html {
+    background-image: url(../img/dark-paths.png);
+}
+
+.navbar {
+    background-color: #373E40;
+}
+
+body {
+    background-color: ;
+}
+
+#page{
+    background-color: #e0e0e0;
+}
+
+.logo{
+    color: rgba(213,173,54,.9);
+}

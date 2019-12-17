@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block stylesheet %}
+<link rel="stylesheet"  href="{% static 'css/accounts.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="has-text-centered logo title is-1">
+        <a href="{% url 'blog_index' %}">Navy DEP Blog</a>
+    </h1>
+    {% block page_content%}
+    {% endblock %}
+</div>
+{% endblock %}

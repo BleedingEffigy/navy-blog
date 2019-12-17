@@ -1,13 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from .forms import SignUpForm, ProfileForm
 from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
 from blog.models import Comment
 
 # Create your views here.
 def signup(request):
     if request.method == 'POST':
-        form = SignUpForm(request.POST, instance=request.user)
+        form = SignUpForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
@@ -16,6 +17,7 @@ def signup(request):
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
 
+@login_required
 def profile(request):
     comments = Comment.objects.filter(
         author__username__contains = request.user.username
@@ -36,5 +38,5 @@ def update_profile(request):
             return redirect('profile')
     else:
         form = ProfileForm(instance=request.user.profile)
-    return render(request, 'edit_profile.html', {form: 'form'})
+    return render(request, 'edit_profile.html', {'form': form})
 

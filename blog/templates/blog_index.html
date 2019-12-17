@@ -6,6 +6,7 @@
          style="backgroundImage: url(https://live.staticflickr.com/7897/31878640877_89fb0197ed_b.jpg); backgroundPosition: 'center center'; backgroundSize: 'cover'; opacity: '0.6'">
         <div class="container">
             <h1 class="title is-1 logo"> Navy DEP Blog</h1>
+            <h2 class="subtitle is-3 logo">Reflection on life as a sailor</h2>
         </div>
     </div>
 </div>
@@ -13,8 +14,8 @@
 
 {% block page_content %}
 
-<div>
-    <hr>
+<div class="columns is-centered">
+    <div class="column is-11">
     {% for post in posts%}
     <h2 class="title is-2"><a href="{% url 'blog_detail' post.pk %}">{{post.title}}</a></h2>
     <small>
@@ -28,5 +29,6 @@
     </small>
     <p>{{post.body | slice:":400"}}...</p>
     {% endfor %}
+    </div>
 </div>
 {% endblock %}

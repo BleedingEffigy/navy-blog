@@ -27,8 +27,9 @@
                             <div class="level-item">
                                 <form method="post" novalidate>
                                     {% csrf_token %}
+                                    <input type="hidden" name="next" value="{{ next }}">
                                     {% include 'includes/form.html' %}
-                                    <button type="submit" class="button is-primary">Log in</button>
+                                    <button type="submit" class="button is-info">Log in</button>
                                 </form>
                             </div>
                         </div>
@@ -37,6 +38,7 @@
                         New to the blog? <a href="{% url 'signup' %}">&nbsp; Sign Up</a>
                     </div>
                 </div>
+                <small><a href="{% url 'password_reset' %}">Forgot your password?</a></small>
             </div>
         </div>
     </section>

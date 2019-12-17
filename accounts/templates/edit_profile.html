@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block stylesheet %}
-
+<link rel="stylesheet" href="{% static 'css/accounts.css' %}">
 {% endblock %}
 
 {% block page_content %}
@@ -11,7 +11,7 @@
     <h1 class="title has-text-centered is-1 logo">
         <a href="{% url 'blog_index' %}">Navy DEP Blog</a>
     </h1>
-    <div class="columns">
+    <div class="columns is-centered">
         <div class="column is-8">
             <div class="card">
                 <div class="card-header">
@@ -20,7 +20,7 @@
                 <div class="card-content">
                     <form method="post" novalidate>
                         {% csrf_token %}
-                        {{form.as_p}}
+                        {% include 'includes/form.html' %}
                         <button type="submit" class="button is-link">Edit</button>
                     </form>
                 </div>

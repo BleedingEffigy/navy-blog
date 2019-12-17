@@ -18,8 +18,9 @@
                             <div class="level">
                                 <div class="level-left"><div class="level-item">@ {{user.username}} </div></div>
                             </div>
-                            <button class="button is-danger is-light">edit</button>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <p>{{user.profile.birth_date}}</p>
+                            <p>{{user.profile.bio}}</p>
+                            <a class="button is-danger is-light" href="{% url 'update_profile'%}">edit</a>
                         </div>
                     </div>
                 </div>
