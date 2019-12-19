@@ -17,7 +17,7 @@
 <div class="columns is-centered">
     <div class="column is-11">
     {% for post in posts%}
-    <h2 class="title is-2"><a href="{% url 'blog_detail' post.pk %}">{{post.title}}</a></h2>
+    <h2 class="title is-2 post-title"><a href="{% url 'blog_detail' post.pk %}">{{post.title}}</a></h2>
     <small>
         {{post.created_on.date}} |&nbsp;
         Categories:|&nbsp;
