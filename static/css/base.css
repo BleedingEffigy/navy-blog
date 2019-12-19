@@ -17,3 +17,8 @@ body {
 .logo{
     color: rgba(213,173,54,.9);
 }
+
+.post-title a:active{
+    text-decoration: none;
+    color: inherit;
+}
